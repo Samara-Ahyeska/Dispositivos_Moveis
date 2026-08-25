@@ -7,7 +7,6 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- Container do Cartão (CardView com suporte a Flip) -->
     <FrameLayout
         android:id="@+id/cardContainer"
         android:layout_width="0dp"
@@ -17,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- FRENTE DO CARTÃO -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardFront"
             android:layout_width="match_parent"
@@ -31,7 +29,6 @@
                 android:layout_height="match_parent"
                 android:padding="20dp">
 
-                <!-- NOME DA BANDEIRA (Canto Superior Esquerdo) -->
                 <TextView
                     android:id="@+id/tvBrandName"
                     android:layout_width="wrap_content"
@@ -43,13 +40,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- SÍMBOLO DE APROXIÇÃO / NFC (Canto Superior Direito) -->
                 <ImageView
                     android:id="@+id/ivContactless"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:scaleType="fitCenter"
-                    android:src="@android:drawable/ic_menu_compass"
+                    android:src="@drawable/aproximacao"
                     app:tint="@android:color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +89,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- VERSO DO CARTÃO (Com CVV, Validade e Logo da Bandeira Abaixo) -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardBack"
             android:layout_width="match_parent"
@@ -115,7 +110,6 @@
                     android:background="#333333"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- CVV -->
                 <TextView
                     android:id="@+id/tvCvvLabel"
                     android:layout_width="wrap_content"
@@ -143,7 +137,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvCvvLabel" />
 
-                <!-- VALIDADE NO VERSO -->
                 <TextView
                     android:id="@+id/tvCardExpiresLabel"
                     android:layout_width="wrap_content"
@@ -173,7 +166,6 @@
                     app:layout_constraintStart_toStartOf="@+id/tvCardExpiresLabel"
                     app:layout_constraintTop_toBottomOf="@+id/tvCardExpiresLabel" />
 
-                <!-- LOGO DA BANDEIRA NO CANTO INFERIOR DIREITO (ABAIXO DA VALIDADE) -->
                 <ImageView
                     android:id="@+id/ivCardBrandBack"
                     android:layout_width="54dp"
@@ -189,7 +181,6 @@
         </androidx.cardview.widget.CardView>
     </FrameLayout>
 
-    <!-- FORMULÁRIO -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -208,7 +199,6 @@
             android:inputType="number"
             android:maxLength="19" />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilHolder"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -219,7 +209,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilNumber">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etHolder"
             android:layout_width="match_parent"

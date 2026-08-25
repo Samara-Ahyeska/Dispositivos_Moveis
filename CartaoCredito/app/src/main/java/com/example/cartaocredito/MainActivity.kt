@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTextWatchers() {
-        // Máscara e atualização do Número do Cartão
+
         binding.etNumber.addTextChangedListener(object : TextWatcher {
             private var isFormatting = false
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Atualização do Nome do Titular
+
         binding.etHolder.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Máscara, atualização e validação da Validade (MM/AA)
         binding.etExpires.addTextChangedListener(object : TextWatcher {
             private var isFormatting = false
 
@@ -86,14 +85,13 @@ class MainActivity : AppCompatActivity() {
                 val displayVal = if (formatted.isEmpty()) "MM/AA" else formatted.toString()
                 binding.tvCardExpiresPreview.text = displayVal
 
-                // Validação da data considerando 2 dígitos no ano
                 validateExpirationDate(formatted.toString())
 
                 isFormatting = false
             }
         })
 
-        // Atualização do CVV
+
         binding.etCvv.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -225,20 +223,20 @@ class MainActivity : AppCompatActivity() {
         binding.cardFront.setCardBackgroundColor(bgColor)
         binding.cardBack.setCardBackgroundColor(bgColor)
 
-        // Define o nome da bandeira em texto na frente do cartão
+
         binding.tvBrandName.text = brandName
 
-        // Define a logo/imagem da bandeira no verso do cartão
+
         if (brandName.isEmpty()) {
             binding.ivCardBrandBack.visibility = View.GONE
         } else {
             binding.ivCardBrandBack.visibility = View.VISIBLE
             val drawableRes = when (brandName) {
-                "VISA" -> android.R.drawable.ic_menu_gallery // Substitua por R.drawable.ic_visa quando tiver a imagem
-                "MASTERCARD" -> android.R.drawable.ic_ma // Substitua por R.drawable.ic_mastercard
-                "ELO" -> android.R.drawable.ic_menu_gallery // Substitua por R.drawable.ic_elo
-                "AMEX" -> android.R.drawable.ic_menu_gallery // Substitua por R.drawable.ic_amex
-                else -> android.R.drawable.ic_menu_gallery
+                "VISA" -> R.drawable.visa
+                "MASTERCARD" -> R.drawable.mastercard
+                "ELO" -> R.drawable.elo
+                "AMEX" -> R.drawable.amex
+                else -> return
             }
             binding.ivCardBrandBack.setImageResource(drawableRes)
         }
