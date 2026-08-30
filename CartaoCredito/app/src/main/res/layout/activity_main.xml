@@ -40,15 +40,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/ivContactless"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/aproximacao"
-                    app:tint="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvCardNumberPreview"
